@@ -1,2 +1,2 @@
 # Postgres101
-An exrcept from postgres101
+My jouney in learning SQL
