@@ -149,3 +149,8 @@ OR bar.id IS NULL;
 -- SHOW THE TABLES
 SELECT *
 FROM pg_catalog.pg_tables
+
+-- ALTER TABLE your_table
+-- ALTER COLUMN existing_column SET DEFAULT nextval('your_sequence');
+
+-- ALTER TABLE customer ALTER COLUMN id SET DEFAULT serial;
