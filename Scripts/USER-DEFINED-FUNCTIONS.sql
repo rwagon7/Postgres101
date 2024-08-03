@@ -127,3 +127,63 @@ LANGUAGE plpgsql;
 
 -- 1. function without parameters
 -- drop function if exits function1, function2, ...
+
+
+-- Max function
+select max(pay) from payments;
+
+-- Min Function
+select min(pay) from payments;
+
+-- Sum function
+
+-- notes on sum function
+
+-- It ignores all NULL values.
+-- If used with DISTINCT operator as SUM(DISTINCT column), it skips duplicate values.
+-- Using SUM() function with SELECT clause returns NULL instead of Zero.
+select sum(pay) from payments;
+-- example 1
+SELECT
+    id,
+    SUM (pay) AS total
+FROM
+    payment
+GROUP BY
+    id;
+
+-- example 2
+select id, sum(pay) as total from payments group by id order by total  desc limit 2;
+
+-- count function
+-- syntax
+
+-- Syntax: COUNT(*)
+-- Returns: All rows including NULL and Duplicates
+-- Syntax: COUNT(column)
+-- Returns:  All rows except NULL.
+-- Syntax: COUNT(DISTINCT column)
+-- Returns: All rows without NULL and Duplicates
+
+select count(*) from payments;
+
+select count(distinct pay) from payments;
+
+-- EXTRACT function
+-- In PostgreSQL, the EXTRACT() function is a powerful tool used to retrieve specific components of a date or time value.
+
+-- syntax
+-- EXTRACT(field FROM source)
+
+SELECT EXTRACT(YEAR FROM TIMESTAMP '2020-12-31 13:30:15');
+SELECT EXTRACT(MONTH FROM TIMESTAMP '2020-12-31 13:30:15');
+
+
+-- REPLACE function
+-- In PostgreSQL, the REPLACE function is an essential string manipulation tool that allows users to search for and replace all occurrences 
+-- of a specific substring within a given string. This function is particularly useful for data cleaning, formatting, and updating textual data.
+
+select replace('https://www.geeksforgeeks.org', 'https', 'xx');
+
+-- creation for next example
+-- create table customers(first_name varchar(20), last_name varchar(20));
